@@ -5,11 +5,13 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        hashmap = {}
+        prevMap = {}
         for i, num in enumerate(nums):
-            diff = target - num 
-            if diff in hashmap:
-                return [i, hashmap[diff]] 
-            hashmap[num] = i 
-        
+            diff = target - num
+            if diff in prevMap:
+                return [prevMap[num], i]
+            prevMap[num] = i
         return []
+    
+    # TC: O(N)
+    # SC: O(N)
