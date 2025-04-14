@@ -6,16 +6,15 @@ class Solution(object):
         :rtype: int
         """
         l, r = 0, len(nums) - 1
-
         while l <= r:
-            mid = (l + r) // 2
-            if nums[mid] == target:
-                return mid
-            if nums[mid] < target:
-                l = mid + 1
+            m = l + ((r-l)//2)
+            if nums[m] == target:
+                return m
+            elif target < nums[m]:
+                r = m - 1
             else:
-                r = mid - 1
+                l = m + 1
         return -1
 
-# Time Complexity: O(log n)
-# Space Complexity: O(1)
+# TC: O(log n)
+# SC: O(1)
